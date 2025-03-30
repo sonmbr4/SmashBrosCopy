@@ -1,0 +1,42 @@
+/**Universal*/
+
+*{
+    border: darkblue solid 2px;
+}
+
+header{
+    background-color: gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav{
+    background-color: rgb(219, 218, 218);
+    width: auto;
+    height: auto;
+}
+.card{
+ border: 5px solid #ccc;
+ border-radius: 8px;
+ padding: 10px;
+ text-align: left;
+ max-width: 225px;
+ margin: 10px;
+ box-shadow: 0 4px 15px;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.image{
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+footer{
+    background-color: gray;
+    text-align: center;
+}
+

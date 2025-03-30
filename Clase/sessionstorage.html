@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+/*ejercicio 1
+construya un algoritmo: 
+que tenga una opción que solicite el nombre y la edad
+los guarde en dos variables de session
+que tenga otra opción para que lea y muestre el nombre
+que tenga otra opción para que lea y muestre la edad
+si el usuario elige la opción 2 o la opción 3, el algoritmo debe verificar 
+si la variables de session edad y nombre ya existen o no
+*/
+function escribir(){
+    let nombre = prompt("Ingrese su nombre")
+    let edad = parseInt(prompt("Ingrese su edad"))
+    sessionStorage.setItem("nombre", nombre)
+    sessionStorage.setItem("Edad", edad)
+}
+function leer(){
+    alert("nombre: " + sessionStorage.getItem("nombre") + " Edad: " + sessionStorage.getItem("Edad")
+    )
+    
+}
+
+function buscar(){
+    nombre = sessionStorage.getItem("nombre")
+    edad = sessionStorage.getItem("Edad")
+    let buscarN = prompt("ingrese el nombre a buscar")
+    if (nombre == buscarN){
+        alert("Los datos del usuario son: \n" + "Nombre: "+ nombre + "\n" + " Edad " + edad)
+    }
+    else{
+        alert("no hay datos guardados")
+    }
+}
+function borrar(){
+            sessionStorage.clear()
+        }
+
+</script>
+<body>
+    <button onclick = "leer()">Leer</button><br>
+    <button onclick="escribir()">Escribir</button><br>
+    <button onclick="buscar()">Buscar</button><br>
+    <button onclick="borrar()">Borrar</button>
+</body>
+</html>

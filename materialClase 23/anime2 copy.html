@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+    .card{
+        border: 5px solid #ccc;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+        max-width: 700px;
+        margin: auto;
+    }
+    .card img{
+        max-width: 400px;
+        border-radius: 8px;
+    }
+    .btn{
+        background-color: #007bff;
+        color:white;
+        padding: 10px 20px;
+        
+        border-radius: 4px;
+    }
+    .btn:hover{
+        background-color: #0056b3;
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+    }
+    .description{
+        margin-top: 10px;
+        font-style: italic;
+        color: #555;
+    }
+    
+ </style>
+</head>
+<body>
+    <div id="panel" class="container">
+        
+    </div>
+    <script>
+        fetch(`materialADSO/characters.json`)
+            .then(res=>res.json())
+            .then(json=>{
+                        let tarjetas="";
+                        json.forEach(element => {
+                            tarjetas+=`<div class="card p-3 my-4">
+                            <img src="${element.image}" height="900" width="600">   
+                        <button type="button" class="btn btn-primary mt-3 mb-1"><span>${element.title}</span></button>
+                        <p class="description" id="description" style="display:none;">${element.description} || "default description"</p>
+                            </div> `
+                        });
+                
+                        panel.innerHTML = tarjetas
+                    }
+                    );
+    </script>
+</body>
+</html>

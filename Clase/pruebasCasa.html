@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+   
+/*
+
+7.Aplicación de compras. Crea una función que guarde el ID de un producto en LocalStorage cuando el usuario lo añade al carrito. 
+Crea una función que recupere de LocalStorage el ID del producto del carrito y lo muestre en la consola. 
+LocalStorage solo almacenará los ID, el resto de la información del cada producto esta en un arreglo en el archivo.
+Ej:
+var productos=[
+ {
+    ID: 2,
+    nombre: "leche",
+    precio: 2500
+},
+{
+    ID: 3,
+    nombre: "arroz",
+    precio: 2000
+},
+{
+    ID: 4,
+    nombre: "gaseosa",
+    precio: '6000
+}
+]
+
+*/
+
+//1.Crea una función que guarde un valor en localStorage
+let a = localStorage.setItem("Juego", "Mario")
+
+
+//Luego, crea una función que recupere ese valor y lo muestre en la consola.
+function imprimir(){
+ console.log(localStorage.getItem("Juego"))
+}
+
+//2.Crea una función que cuente cuántos elementos hay almacenados en localStorage.
+function contar(){
+ console.log(localStorage.length)
+}
+//3. Crea una función que elimine un valor específico de localStorage (sabiendo cuantos valores hay, elegir uno).
+function buscar(){
+  let buscar = parseInt(prompt("que valor desea buscar?")) - 1
+  console.log("Se a eliminado el valor: " + localStorage.key(buscar))
+}
+function eliminar(){
+  let quitar = prompt("Que valor desea eliminar?")
+  localStorage.removeItem(quitar)
+}
+//4.Implementa una función que elimine datos de localStorage después de un tiempo determinado.
+function bombatiempo(){
+  let desacer = prompt("Que valor desea eliminar?")
+  let cronometro = parseInt(prompt("en cuanto tiempo quiere eliminar la variable?")*1000)
+  setTimeout(() => {
+    localStorage.removeItem()
+    console.log("se acaba de eliminar " + desacer)
+  }, cronometro);
+}
+// 5-Crea una función que guarde un objeto en localStorage. En el mismo ejercicio, crea una función que recupere ese objeto y lo muestre en la consola. 
+function guardarObjeto(){
+  const miObjeto = {
+  nombre: 'Juan',
+  edad: 30,
+  ciudad: 'Madrid'
+};
+const objetoEnTexto = JSON.stringify(miObjeto);
+localStorage.setItem('usuario', objetoEnTexto);
+console.log(objetoEnTexto)
+
+const volverobje = JSON.parse(objetoEnTexto)
+console.log(volverobje)
+}
+//6- Crea una función que limpie todos los datos del usuario almacenados en localStorage.
+function borrar(){
+  sessionStorage.clear()         
+}
+//8: Problema: Estás desarrollando una aplicación de análisis de texto. Crea una función que guarde un párrafo en localStorage. 
+//Luego, crea otra función que recupere el párrafo, cuente el número de palabras y muestre el resultado en la consola.
+function texto(){
+    let textoleer = prompt("ingrese cualquier parrafo que quiera")
+    let espacio = " "
+    var espacios = textoleer.split(espacio)
+
+  
+  alert("el texto tiene" + espacios.length + "palabras")
+}
+
+//9: En tu aplicación de edición de texto, crea una función que guarde un párrafo en localStorage. 
+//Luego, crea otra función que recupere el párrafo, reemplace todas las ocurrencias de una palabra 
+//específica por otra, y guarde el texto modificado nuevamente en localStorage.
+
+function reemplazarPalabra() {
+  let parrafo = prompt("Ingrese un párrafo:");
+  localStorage.setItem("parrafo", parrafo);
+  console.log("Párrafo guardado:", parrafo);
+  let tomarParrafo = localStorage.getItem("parrafo");
+  if (tomarParrafo) {
+    let palabraBuscar = prompt("Ingrese la palabra a buscar:");
+    let palabraReemplazar = prompt("Ingrese la palabra para reemplazar:");
+    let parrafoModificado = parrafo.replaceAll(palabraBuscar, palabraReemplazar);
+    localStorage.setItem("parrafo", parrafoModificado);
+    console.log("Párrafo modificado:", parrafoModificado);
+  } else {
+    console.log("No se encontró ningún párrafo guardado.");
+  }
+}
+// 10. Resaltar una palabra específica en el texto
+function guardarTexto() {
+  let texto = prompt("Ingrese un texto:");
+  localStorage.setItem("texto", texto);
+  console.log("Texto guardado:", texto);
+}
+
+function resaltarPalabra() {
+  let texto = localStorage.getItem("texto");
+  if (texto) {
+    let palabraResaltar = prompt("Ingrese la palabra a resaltar:");
+    let textoResaltado = texto.replaceAll(palabraResaltar, `<mark>${palabraResaltar}</mark>`);
+    console.log("Texto resaltado:", textoResaltado);
+  } else {
+    console.log("No se encontró ningún texto guardado.");
+  }
+}
+// 11. Agregar texto al final de un párrafo
+function agregarTexto() {
+  let parrafo = localStorage.getItem("parrafo");
+  if (parrafo) {
+    let nuevoTexto = prompt("Ingrese el texto a agregar:");
+    let parrafoActualizado = parrafo + " " + nuevoTexto;
+    localStorage.setItem("parrafo", parrafoActualizado);
+    console.log("Párrafo actualizado:", parrafoActualizado);
+  } else {
+    console.log("No se encontró ningún párrafo guardado.");
+  }
+}
+// 12. Contar la frecuencia de letras
+function contarFrecuenciaLetras() {
+  let texto = localStorage.getItem("texto");
+  if (texto) {
+    let frecuencias = {};
+    for (let letra of texto.toLowerCase()) {
+      if (letra.match(/[a-z]/)) {
+        frecuencias[letra] = (frecuencias[letra] || 0) + 1;
+      }
+    }
+    console.log("Frecuencia de letras:", frecuencias);
+  } else {
+    console.log("No se encontró ningún texto guardado.");
+  }
+
+}
+/*13: Extraer una subcadena
+
+Problema: En tu aplicación de análisis de texto, crea una función que guarde un párrafo en localStorage.
+Luego, crea otra función que recupere el párrafo, extraiga una subcadena específica y muestre el resultado en la consola.*/
+
+
+//Extraer una subcadena del párrafo
+function extraerSubcadena() {
+    const parrafo = localStorage.getItem('parrafo');
+    if (parrafo) {
+        const subcadena = parrafo.slice(11, 18);
+        console.log('Subcadena extraída:', subcadena);
+    } else {
+        console.log('No se encontró ningún párrafo en localStorage');
+    }
+}
+ let opc = parseInt(prompt('Ingrese una opcion para hacer \n 1-imprimir \n 2-contar \n 3-buscar \n 4-eliminar \n 5-Bombad De Tiempo \n 6-Guardar Objeto \n 7-Borrar \n 8-texto \n 9-Reemplazar \n 10-Guardar texto \n 11-resatar \n 12- agregar \n 13-contar letras \n 14-extraer'))
+switch (op) {
+  case 1:
+  imprimir()
+    break;
+  case 2:
+    contar()
+    break;
+    case 3:
+    buscar()
+    break;
+    case 4:
+    eliminar()
+    break;
+    case 5:
+    bombatiempo()
+    break;
+    case 6:
+    guardarObjeto()
+    break;
+    case 7:
+    borrar()
+    break;
+    case 8:
+    texto()
+    break;
+    case 9:
+    reemplazarPalabra()
+    break;
+    case 10:
+    guardarTexto()
+    break;
+    case 11:
+    resaltarPalabra()
+    break;
+    case 12:
+    agregarTexto()
+    break;case 13:
+    contarFrecuenciaLetras()
+    break;case 14:
+    extraerSubcadena()
+    break;
+    
+  default:
+    break;
+}
+</script>
+<body>
+  
+  
+</body>
+</html>

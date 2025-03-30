@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+        }
+
+        /* Estilos para el logo Nintendo Switch*/
+        .header-right {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .header-right .register-button,
+        .header-right .login-button {
+            background-color: black;
+            border: transparent;
+            color: white;
+            padding: 40px 20px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .header-right .login-button:hover {
+            color: lightseagreen;
+        }
+
+        .header-right .register-button:hover {
+            color: lightseagreen;
+        }
+
+        main {
+            margin: 80px;
+        }
+
+        section {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        article {
+            border: 5px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: unset;
+            max-width: 300px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 10px 10px 2px;
+            transition: transform 0.3s ease;
+        }
+
+        article:hover {
+            transform: translateY(-10px);
+        }
+
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        input {
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            padding: 16px;
+            text-align: unset;
+            max-width: 300px;
+            background-color: #fff;
+        }
+
+        .login-form{
+            background-color: #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        .login-form h2{
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        input[type="password"],input[type="text"]{
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-form input[type="submit"]{
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+        </div>
+        <div class="header-right">
+            <button class="register-button">Registrarse</button>
+            <button class="login-button" id="InicioSesion">Iniciar Sesion</button>
+        </div>
+    </header>
+    <main>
+        <section>
+            <article>UNO</article>
+            <article>DOS</article>
+            <article>TRES</article>
+            <article>CUATRO</article>
+        </section>
+
+        <!--Modal-->
+        <section>
+            <h2>Modal Example</h2>
+
+            <button id="myBtn"><img src="../../proyecto_smash/Imagenes/ramen-time.jpg" alt="ramen-time"></button>
+
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="login-form">
+                        <h2>Iniciar Sesión</h2>
+                        <form  action="/MaterialInicialCSS/EjerciciosIniciales/login.html"  id="loginForm">
+                            <label for="NombreUsuario">Nombre de Usuario:</label>
+                            <input type="text" id="username" name="username" required>
+    
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" name="password" required>
+    
+    
+                            <input type="submit" value="Iniciar Sesion">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <div></div>
+
+    <script>
+        //Codigo del modal
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("InicioSesion");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

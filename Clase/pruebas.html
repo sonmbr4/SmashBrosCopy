@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+   
+/*Taller 
+1: Crea una función que guarde un valor en localStorage. Luego, crea una función que recupere ese valor y lo muestre en la consola.  
+2. Crea una función que cuente cuántos elementos hay almacenados en localStorage.
+3: Crea una función que elimine un valor específico de localStorage (sabiendo cuantos valores hay, elegir uno).
+//Revisar la siguiente fuente https://es.javascript.info/localstorage
+
+4: Implementa una función que elimine datos de localStorage después de un tiempo determinado.
+// Almacenar un valor en localStorage
+localStorage.setItem('miVariable', 'miValor');
+
+// Establecer un tiempo de espera (por ejemplo, 5 segundos)
+const tiempoEspera = 5000; // 5 segundos
+
+// Eliminar el elemento después del tiempo de espera
+setTimeout(() => {
+  localStorage.removeItem('miVariable');
+  console.log('Elemento eliminado de localStorage');
+}, tiempoEspera);
+
+
+5: Crea una función que guarde un objeto en localStorage. En el mismo ejercicio, crea una función que recupere ese objeto y lo muestre en la consola. 
+
+// Crear un objeto
+const miObjeto = {
+  nombre: 'Juan',
+  edad: 30,
+  ciudad: 'Madrid'
+};
+
+// Convertir el objeto a una cadena JSON
+const objetoEnTexto = JSON.stringify(miObjeto);
+
+// Guardar en localStorage
+localStorage.setItem('usuario', objetoEnTexto);
+
+Recuerda que al recuperar el objeto desde localStorage, deberás usar JSON.parse() para convertir la cadena JSON nuevamente en un objeto JavaScript
+
+6: Crea una función que guarde un objeto con la información del usuario (nombre, edad, email) en localStorage. Crea una función que recupere el objeto del usuario y lo muestre en la consola.
+Crea una función que limpie todos los datos del usuario almacenados en localStorage.
+
+7.Aplicación de compras. Crea una función que guarde el ID de un producto en LocalStorage cuando el usuario lo añade al carrito. 
+Crea una función que recupere de LocalStorage el ID del producto del carrito y lo muestre en la consola. 
+LocalStorage solo almacenará los ID, el resto de la información del cada producto esta en un arreglo en el archivo.
+Ej:
+var productos=[
+ {
+    ID: 2,
+    nombre: "leche",
+    precio: 2500
+},
+{
+    ID: 3,
+    nombre: "arroz",
+    precio: 2000
+},
+{
+    ID: 4,
+    nombre: "gaseosa",
+    precio: '6000
+}
+]
+8: Problema: Estás desarrollando una aplicación de análisis de texto. Crea una función que guarde un párrafo en localStorage. 
+Luego, crea otra función que recupere el párrafo, cuente el número de palabras y muestre el resultado en la consola.
+
+9: En tu aplicación de edición de texto, crea una función que guarde un párrafo en localStorage. 
+Luego, crea otra función que recupere el párrafo, reemplace todas las ocurrencias de una palabra 
+específica por otra, y guarde el texto modificado nuevamente en localStorage.
+Un ejemplo sería  buscar todas las palabras "la" y cambiarlas por "el"
+
+10:Problema: Estás desarrollando una aplicación de lectura. Crea una función que guarde 
+un texto en localStorage. Luego, crea otra función que recupere el texto, encuentre todas 
+las ocurrencias de una palabra específica y las envuelva en etiquetas <mark> para resaltarlas.
+Muestra el texto resaltado en la consola.
+
+
+
+11: Agregar texto al final de un párrafo
+Problema: En tu aplicación de notas, crea una función que guarde un párrafo en localStorage. Luego, crea otra función que recupere el párrafo, agregue una nueva oración al final del mismo, y guarde el texto actualizado nuevamente en localStorage.
+
+12: Contar la frecuencia de letras
+Problema: Estás desarrollando una herramienta de análisis de texto. Crea una función que guarde un texto en localStorage. Luego, crea otra función que recupere el texto, cuente la frecuencia de cada letra (ignorando mayúsculas y minúsculas), y muestre los resultados en la consola.
+
+// Contar palabras en el párrafo guardado
+function contarPalabras() {
+    const parrafo = localStorage.getItem('parrafo');
+    if (parrafo) {
+        const palabras = parrafo.split(' ');
+        console.log('Número de palabras:', palabras.length);
+    } else {
+        console.log('No se encontró ningún párrafo en localStorage');
+    }
+}
+
+
+13: Extraer una subcadena
+
+Problema: En tu aplicación de análisis de texto, crea una función que guarde un párrafo en localStorage. Luego, crea otra función que recupere el párrafo, extraiga una subcadena específica y muestre el resultado en la consola.
+
+// Extraer una subcadena del párrafo
+function extraerSubcadena() {
+    const parrafo = localStorage.getItem('parrafo');
+    if (parrafo) {
+        const subcadena = parrafo.slice(11, 18);
+        console.log('Subcadena extraída:', subcadena);
+    } else {
+        console.log('No se encontró ningún párrafo en localStorage');
+    }
+}
+
+14: Problema: En tu aplicación de análisis de texto, crea una función que guarde un párrafo en localStorage. Luego, crea otra función que recupere el párrafo, y reemplace cada palabra por el
+valor de su tamaño. Ejemplo cadena inicial: "una vaca vestida de uniforme" quedaría "3 4 7 2 8"
+*/
+
+//1.Crea una función que guarde un valor en localStorage
+let a = localStorage.setItem("Juego", "Mario")
+
+
+//Luego, crea una función que recupere ese valor y lo muestre en la consola.
+function imprimir(){
+ console.log(localStorage.getItem("Juego"))
+}
+
+//2.Crea una función que cuente cuántos elementos hay almacenados en localStorage.
+function contar(){
+ console.log(localStorage.length)
+}
+//3. Crea una función que elimine un valor específico de localStorage (sabiendo cuantos valores hay, elegir uno).
+function buscar(){
+  let buscar = parseInt(prompt("que valor desea buscar?")) - 1
+  console.log("Se a eliminado el valor: " + localStorage.key(buscar))
+}
+function eliminar(){
+  let quitar = prompt("Que valor desea eliminar?")
+  localStorage.removeItem(quitar)
+}
+//4.Implementa una función que elimine datos de localStorage después de un tiempo determinado.
+function bombatiempo(){
+  let desacer = prompt("Que valor desea eliminar?")
+  let cronometro = parseInt(prompt("en cuanto tiempo quiere eliminar la variable?")*1000)
+  setTimeout(() => {
+    localStorage.removeItem()
+    console.log("se acaba de eliminar " + desacer)
+  }, cronometro);
+}
+// 5-Crea una función que guarde un objeto en localStorage. En el mismo ejercicio, crea una función que recupere ese objeto y lo muestre en la consola. 
+function guardarObjeto(){
+  const miObjeto = {
+  nombre: 'Juan',
+  edad: 30,
+  ciudad: 'Madrid'
+};
+const objetoEnTexto = JSON.stringify(miObjeto);
+localStorage.setItem('usuario', objetoEnTexto);
+console.log(objetoEnTexto)
+
+const volverobje = JSON.parse(objetoEnTexto)
+console.log(volverobje)
+}
+//6- Crea una función que limpie todos los datos del usuario almacenados en localStorage.
+function borrar(){
+  sessionStorage.clear()         
+}
+//8: Problema: Estás desarrollando una aplicación de análisis de texto. Crea una función que guarde un párrafo en localStorage. 
+//Luego, crea otra función que recupere el párrafo, cuente el número de palabras y muestre el resultado en la consola.
+function texto(){
+  let textoleer = prompt("ingrese cualquier parrafo que quiera")
+  let espacio = " "
+  var espacios = textoleer.split(espacio)
+
+  
+  alert("el texto tiene" + espacios.length + "palabras")
+}
+
+
+
+
+</script>
+<body>
+  <button onclick = "imprimir()">imprimir</button><br>
+  <button onclick="contar()">contar</button><br>
+  <button onclick="buscar()">buscar</button><br>
+  <button onclick="eliminar()">eliminar</button><br>
+  <button onclick="bombatiempo()">bombatiempo</button><br>
+  <button onclick="guardarObjeto()">GuardarObjeto</button><br>
+  <button onclick="borrar()">Borrar</button><br>
+  <button onclick="texto()">texto</button><br>
+  
+</body>
+</html>

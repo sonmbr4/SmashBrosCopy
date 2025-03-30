@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 80%;
+            margin: 0 auto;
+            background-color: #000;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 1">
+                <div class="play-button">▶</div>
+            </div>
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 2">
+                <div class="play-button">▶</div>
+            </div>
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 3">
+                <div class="play-button">▶</div>
+            </div>
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 4">
+                <div class="play-button">▶</div>
+            </div>
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 5">
+                <div class="play-button">▶</div>
+            </div>
+            <div class="carousel-item">
+                <img src="Imagenes/ramen-time.jpg" alt="Video 6">
+                <div class="play-button">▶</div>
+            </div>
+        </div>
+        <button class="arrow left" onclick="prevSlide()">‹</button>
+        <button class="arrow right" onclick="nextSlide()">›</button>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const totalItems = document.querySelectorAll('.carousel-item').length;
+            if (index >= totalItems) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalItems - 1;
+            } else {
+                currentIndex = index;
+            }
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+    </script>
+</body>
+</html>

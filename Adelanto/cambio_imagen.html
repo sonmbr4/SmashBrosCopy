@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <img src="iam.jpg" alt="" id="img1" width="1000" height="1000">
+    
+
+    <button onclick="OCULTAR()">change</button>
+    <button onclick="REDUCIR()">Reducir</button>
+</head>
+<script>
+ function OCULTAR() {
+    //document.getElementById('img1').src = 'god.jpg'
+    document.getElementById('img1').style.display='none'
+ }
+ function REDUCIR(){
+    let imagen = parseFloat(document.getElementById('img1'))
+    imagen.width = imagen.width*0.9
+    imagen.height = imagen.height*0,9
+ }
+</script>
+<body>
+    
+</body>
+</html>

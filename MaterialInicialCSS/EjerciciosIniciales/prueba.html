@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        section {
+            height: 15em;
+            width: 80%;
+            background-color: aquamarine;
+            color: black;
+            display: flex;
+            flex-flow: column;
+            align-self: center;
+        }
+
+        nav {
+            background-color: aquamarine;
+
+        }
+
+        nav ul li a {
+            color: black;
+        }
+
+        table,
+        td {
+            border: 2px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><label for="">LOGO</label></a>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Servicios</a>
+                    <div class="dropdown-content">
+                        <a href="Registrar.html">Registrar</a>
+                        <a href="Listar.html">Listar</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn">Productos</a>
+                    <div class="dropdown-content">
+                        <a href="Registrar.html">Registrar</a>
+                        <a href="Listar.html">Listar</a>
+                    </div>
+                </li>
+            </ul>
+            <div>
+                <button class="btn"><span class="front">Sign Up</span></button>
+                <button id="myBtn" class="btn"><span class="front">Login</span></button>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+
+        <section>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>DOCUMENT</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+                            <button id="btnDetalle">Ver detalle</button>
+                            <button id="btnEditar"> Editar</button>
+                            <button>Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>99986622</td>
+                        <td>jaime andres lopez</td>
+                        <td>jalopez@gmail.com</td>
+                        <td>333-336666</td>
+                        <td>
+
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+
+    <div id="modalDetalle" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <label for="inputUser">Documento:</label>
+                <input type="email" id="inputUser" value="9999999" disabled>
+                <label for="inputUser">Usuario:</label>
+                <input type="email" id="inputUser" value="jaime andres lopez" disabled>
+                <label for="inputUser">Email:</label>
+                <input type="email" id="inputUser" value="juan@gmail.com" disabled>
+                <label for="inputUser">Telefono:</label>
+                <input type="email" id="inputUser" value="99999-333" disabled>
+                <label for="inputUser">Ficha:</label>
+                <input type="email" id="inputUser" value="28441" disabled>
+                <label for="inputUser">Programa:</label>
+                <input type="email" id="inputUser" value="ADSO" disabled>
+                <div class="modal-footer">
+                    <input type="reset" value="Limpiar">
+                    <input type="submit" value="Ingresar" onclick="login()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalEditar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <label for="inputUser">Documento:</label>
+                <input type="email" id="inputUser" value="9999999" disabled>
+                <label for="inputUser">Usuario:</label>
+                <input type="email" id="inputUser" value="jaime andres lopez">
+                <label for="inputUser">Email:</label>
+                <input type="email" id="inputUser" value="juan@gmail.com">
+                <label for="inputUser">Telefono:</label>
+                <input type="email" id="inputUser" value="99999-333">
+                <label for="inputUser">Ficha:</label>
+                <input type="email" id="inputUser" value="28441">
+                <label for="inputUser">Programa:</label>
+                <input type="email" id="inputUser" value="ADSO">
+                <div class="modal-footer">
+                    <input type="reset" value="Limpiar">
+                    <input type="submit" value="Ingresar" onclick="login()">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("modalDetalle");
+        var modal2 = document.getElementById("modalEditar");
+        // Get the button that opens the modal
+        var btn = document.getElementById("btnDetalle");
+        var btn2 = document.getElementById("btnEditar");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close")[1];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        btn2.onclick = function () {
+            modal2.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span2.onclick = function () {
+            modal2.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+            }
+        }
+
+        function login() {
+            if (inputUser.value == "juan@gmail.com" && inputPass.value == "123") {
+                window.open('home.html')
+            }
+        }
+    </script>
+</body>
+
+</html>

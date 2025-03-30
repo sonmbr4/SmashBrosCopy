@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body{
+	background-color: #C1C7D7;
+	font-family: 'Poppins', sans-serif;
+    
+}
+.card{
+	width: 630px;
+	border: none;
+	border-radius: 12px;
+	position: relative;
+}
+
+img{
+	border-radius: 12px;
+}
+div.text-white{
+	position: absolute;
+	top: 55%;
+	left: 10%;
+	right: 10%;
+	font-size: 28px;
+}
+div.text-muted{
+	position: absolute;
+	top: 70%;
+	left: 10%;
+	right: 12%;
+	font-size: 14px;
+	color: #adb5bd!important;
+}
+div.justify-content-between{
+	position: absolute;
+	top: 79%;
+	left: 10%;
+	right: 10%;
+}
+.justify-content-between span{
+	padding-right: 10px;
+}
+.justify-content-between hr{
+	border-top: 2px solid #adb5bd;
+	width: 70px;
+}
+.justify-content-between hr:hover{
+	border-top: 2px solid #fff;
+	cursor: pointer;
+}
+hr.first{
+	border-top: 2px solid #fff;
+}
+.btn-primary{
+	background: #616BCC;
+	border: none;
+	border-radius: 7px;
+	padding: 15px;
+}
+.btn-primary:hover{
+	background: #616BCC;
+}
+.btn-primary:focus{
+	box-shadow: none;
+}
+@media screen and (max-width: 384px){
+	div.text-white{
+		position: absolute;
+		top: 50%;
+		line-height: 30px;
+}
+div.text-muted{
+	top: 65%;
+}
+.justify-content-between hr{
+	width: 40px;
+}
+}
+#contenedor{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container d-flex justify-content-center" id="contenedor">
+       
+      </div>
+    <script>
+             fetch(`anime/ghiblifilms.json`)
+                .then(res=>res.json())
+                .then(json=>{
+                    let tarjetas=""
+                    json.forEach(element => {
+                        tarjetas+=`
+                        <div class="card p-3 my-4">
+                        <img src="${element.image}" height="900" width="600">   
+                    <button type="button" class="btn btn-primary mt-3 mb-1"><span>${element.title}</span></button>
+                        </div><br> `
+                        });
+                        
+                        
+                    
+                    contenedor.innerHTML=tarjetas
+                        
+                    }
+                    )
+    </script>
+</body>
+</html>

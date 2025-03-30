@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .slider {
+            width: 300px;
+            height: 20px;
+            background-color: #ccc;
+            position: relative;
+        }
+        .slider .handle {
+            width: 20px;
+            height: 20px;
+            background-color: #007bff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider">
+        <div class="handle"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Establecer variables
+            var slider = $('.slider');
+            var handle = $('.handle');
+            var sliderWidth = slider.width();
+            
+            // Función para arrastrar el control deslizante
+            handle.on('mousedown', function(e) {
+                var offset = e.pageX - handle.offset().left;
+
+                $(document).on('mousemove', function(e) {
+                    var left = e.pageX - offset;
+                    if (left < 0) left = 0;
+                    if (left > sliderWidth - handle.width()) left = sliderWidth - handle.width();
+                    handle.css('left', left);
+                });
+
+                $(document).on('mouseup', function() {
+                    $(document).off('mousemove mouseup');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

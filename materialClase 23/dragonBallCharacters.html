@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fichas de Personajes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .card {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out; /* Transición suave para el zoom */
+        }
+
+        .card:hover {
+            transform: scale(1.1); /* Aumenta un 10% el tamaño al pasar el cursor */
+        }
+
+        .card img {
+            width: 100px;
+            max-width: 100%;
+            height: 550px;
+            max-height: 200px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .character-info {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .character-info p {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .description {
+            font-style: italic;
+            color: #555;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panel" class="container"></div>
+
+    <script>
+        fetch(`materialADSO/characters.json`)
+            .then(res => res.json())
+            .then(json => {
+                let tarjetas = "";
+                json.forEach(element => {
+                    tarjetas += `
+                    <div class="card">
+                        <img src="${element.image}" class="card-image" alt="${element.name}">
+                        <h3>${element.name}</h3>
+                        <div class="character-info">
+                            <p><strong>Ki:</strong> ${element.ki}</p>
+                            <p><strong>Raza:</strong> ${element.race}</p>
+                            <p><strong>Género:</strong> ${element.gender}</p>
+                        </div>
+                        <button type="button" class="btn">Mostrar descripción</button>
+                        <p class="description">${element.description}</p>
+                    </div>`;
+                });
+
+                document.getElementById('panel').innerHTML = tarjetas;
+
+                document.querySelectorAll('.btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const card = btn.parentElement;
+                        const img = card.querySelector('.card-image');
+                        const desc = card.querySelector('.description');
+
+                        if (desc.style.display === 'none' || desc.style.display === '') {
+                            img.style.display = 'none';
+                            desc.style.display = 'block';
+                            btn.textContent = 'Mostrar imagen';
+                        } else {
+                            img.style.display = 'block';
+                            desc.style.display = 'none';
+                            btn.textContent = 'Mostrar descripción';
+                        }
+                    });
+                });
+            })
+            .catch(err => console.error('Error cargando los datos:', err));
+    </script>
+</body>
+
+</html>
+
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function ejer1(){
+        //1.Escribe un programa que imprima los números del 30 al 45
+        let num = 30
+        while(num<=46){
+            num++;
+            console.log(num)
+        }
+    }
+
+    function ejer2(){
+        //2.Escribe un programa que imprima los números pares del 30 al 45
+        let num = 30;
+        while(num <=46){
+            num++;
+            if(num%2 == 0){
+                console.log(num)
+            }
+        }
+    }
+
+    function ejer3(){
+        //3.Escribe un programa que cuente e imprima la cuenta de los números impares que existen entre el 30 al 45.
+        let num = 30;
+        let impares = 0;
+        while(num <=46){
+            num++;
+            if(num%2 != 0){
+                impares++;
+            }
+        }
+        console.log("tiene ", impares, " total de impares")
+    
+    }
+    
+    function ejer4(){
+        //4. Escribe un programa que imprima los números del -10 al 10 sin incluir el cero.
+        let num = -10;
+        while(num<10){
+            num ++;
+            if (num === 0){
+                num = num +1;
+            }
+            console.log(num)
+
+        }
+    }
+    function ejer5(){
+        //5.Escribe un programa que imprima los múltiplos de 10 que hay desde el 100 al 0. 
+        let num = 100
+        console.log(num)
+        while (num > 0) {
+            console.log(num)
+            num = num -10;
+            
+        }
+    }
+    function ejer6(){
+        //6.Escribe un programa que cuente cuántos números pares hay entre -15 y 25. 
+        let num = -15;
+        let par = 0;
+        while(num<=25){
+            num++
+            if(num%2 == 0){
+            par = par +1;
+        }
+        }
+        console.log("tiene ", par, " pares")
+    }
+    function ejer7(){
+        //7.Escribe un programa que imprima los números del 0 al 15 y luego del 15 al 0. utilice la misma variable de control para los dos ciclos.
+        let num = 0;
+        while(num <=14){
+            console.log(num)
+            num++;
+        }
+        while(num>=0){
+            console.log(num)
+            num--;
+        }
+    }ejer7()
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<body>
+    
+</body>
+</html>
