@@ -1,0 +1,349 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: green;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    z-index: 1;
+    list-style: square;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.auth-buttons .btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.auth-buttons .btn:hover {
+    background-color: #45a049;
+}
+
+/* contenido pagina section */
+.contenido {
+    text-align: center;
+    padding: 100px;
+    background-color: #f4f4f4;
+}
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 0 auto;
+    padding: 25px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 8px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    position: relative;
+    top: 0;
+}
+
+#editModal .modal-content {
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+/* Estilos para el dashboard */
+.dashboard-container {
+    padding: 2rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.products-table th, 
+.products-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.products-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.products-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.actions button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+}
+
+.btn-view {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #FFC107;
+    color: black;
+}
+
+.btn-delete {
+    background-color: #F44336;
+    color: white;
+}
+
+/* Estilos para los modales específicos */
+.product-details {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.product-details img {
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #E91E63;
+    margin: 1rem 0;
+}
+
+.delete-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-danger {
+    background-color: #F44336;
+}
+
+/* Formulario de edición */
+#editForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+#editForm .form-group {
+    margin-bottom: 15px;
+}
+
+#editForm .form-group:nth-child(5),
+#editForm .form-group:nth-child(6) {
+    grid-column: span 2;
+}
+
+#editForm button[type="submit"] {
+    grid-column: span 2;
+    width: 200px;
+    margin: 10px auto 0;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    min-height: 100px;
+}
+
+select, input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Dropdowns */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown > a::after {
+    font-size: 0.8em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    #editForm {
+        grid-template-columns: 1fr;
+    }
+    
+    #editForm .form-group:nth-child(5),
+    #editForm .form-group:nth-child(6),
+    #editForm button[type="submit"] {
+        grid-column: span 1;
+    }
+    
+    .product-details {
+        flex-direction: column;
+    }
+    
+    .product-details img {
+        max-width: 100%;
+    }
+}
